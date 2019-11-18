@@ -25,7 +25,7 @@ nginx_cert_dir="/etc/nginx/cert"
 
 current_time=`date "+%Y%m%d%H%M%S"`
 lastest_git_version="2.21.0"
-lastest_mysql_version="8.0.15"
+lastest_mysql_version="8.0.16-2"
 
 INS="yum"
 
@@ -204,19 +204,19 @@ install_git() {
 # 安装mysql
 install_mysql() {
     cd ~
-    wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-$lastest_mysql_version-1.el7.x86_64.rpm-bundle.tar
-    tar -xvf mysql-$lastest_mysql_version-1.el7.x86_64.rpm-bundle.tar
+    wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-$lastest_mysql_version.el7.x86_64.rpm-bundle.tar
+    tar -xvf mysql-$lastest_mysql_version.el7.x86_64.rpm-bundle.tar
     # 卸载centos自带的 mariadb-libs
     mariadbVersion=`rpm -qa | grep mariadb`
     rpm -e --nodeps $mariadbVersion
     # 安装依赖包
     yum install libaio numactl -y
-    rpm -ivh ./mysql-community-common-$lastest_mysql_version-1.el7.x86_64.rpm
-    rpm -ivh ./mysql-community-libs-$lastest_mysql_version-1.el7.x86_64.rpm
-    rpm -ivh ./mysql-community-libs-compat-$lastest_mysql_version-1.el7.x86_64.rpm
-    rpm -ivh ./mysql-community-client-$lastest_mysql_version-1.el7.x86_64.rpm
-    rpm -ivh ./mysql-community-embedded-compat-$lastest_mysql_version-1.el7.x86_64.rpm
-    rpm -ivh ./mysql-community-server-$lastest_mysql_version-1.el7.x86_64.rpm
+    rpm -ivh ./mysql-community-common-$lastest_mysql_version.el7.x86_64.rpm
+    rpm -ivh ./mysql-community-libs-$lastest_mysql_version.el7.x86_64.rpm
+    rpm -ivh ./mysql-community-libs-compat-$lastest_mysql_version.el7.x86_64.rpm
+    rpm -ivh ./mysql-community-client-$lastest_mysql_version.el7.x86_64.rpm
+    rpm -ivh ./mysql-community-embedded-compat-$lastest_mysql_version.el7.x86_64.rpm
+    rpm -ivh ./mysql-community-server-$lastest_mysql_version.el7.x86_64.rpm
     sleep 1
 }
 
