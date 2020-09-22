@@ -25,7 +25,7 @@ nginx_cert_dir="/etc/nginx/cert"
 
 current_time=`date "+%Y%m%d%H%M%S"`
 lastest_git_version="2.21.0"
-lastest_mysql_version="8.0.16-2"
+lastest_mysql_version="8.0.19-1"
 
 INS="yum"
 
